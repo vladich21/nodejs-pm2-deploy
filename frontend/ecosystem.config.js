@@ -20,7 +20,7 @@ module.exports = {
       ref: DEPLOY_REF,
       repo: DEPLOY_REPO,
       path: DEPLOY_PATH,
-      'post-deploy': `export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"; cd frontend && export NODE_OPTIONS=--openssl-legacy-provider && export SKIP_PREFLIGHT_CHECK=true && export REACT_APP_API_URL="${REACT_APP_API_URL}" && npm ci && npm run build && mkdir -p "${FRONTEND_STATIC_PATH}" && rm -rf "${FRONTEND_STATIC_PATH}/"* && cp -R build/. "${FRONTEND_STATIC_PATH}/"`,
+      'post-deploy': `export PATH=/home/practikum/.nvm/versions/node/v20.20.2/bin:$PATH && cd frontend && export NODE_OPTIONS=--openssl-legacy-provider && export SKIP_PREFLIGHT_CHECK=true && export REACT_APP_API_URL=${REACT_APP_API_URL} && npm ci && npm run build && mkdir -p ${FRONTEND_STATIC_PATH} && rm -rf ${FRONTEND_STATIC_PATH}/* && cp -R build/. ${FRONTEND_STATIC_PATH}/`,
     },
   },
 };
