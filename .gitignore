@@ -2,3 +2,7 @@
 node_modules
 *.log
 build
+.env
+.env.*
+!.env.example
+!.env.deploy.example
